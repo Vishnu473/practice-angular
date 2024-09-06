@@ -44,6 +44,8 @@
     </p>
   </div>
 </main>
+<h3>Message sent by Child is :</h3>
+<p>{{ childMessage }}</p>
 
 <app-header-component
   *ngIf="isLoggedIn"
@@ -54,4 +56,5 @@
   *ngIf="isLoggedIn"
   [user]="userName"
   [postLists]="currentpostList"
+  (UserMessage)="childMessageToParent($event)"
 ></app-posts-list>

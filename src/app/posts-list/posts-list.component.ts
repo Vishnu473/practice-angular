@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../services/post-service.service';
 
 @Component({
@@ -11,6 +11,12 @@ import { Post } from '../services/post-service.service';
 })
 export class PostsListComponent {
   @Input() user: string = '';
-
   @Input() postLists: Post[] = [];
+  @Output() UserMessage = new EventEmitter();
+
+  currentMessage: string = "Hi! Parent, I'm your child!";
+
+  sendMessage(): void {
+    this.UserMessage.emit(this.currentMessage);
+  }
 }

@@ -16,6 +16,7 @@ export class AppComponent {
   profession: string = '';
   password: string = '';
   message: string = '';
+  childMessage: string = '';
   currentpostList: Post[] = [];
 
   constructor() {
@@ -75,5 +76,9 @@ export class AppComponent {
       this.stillStudent = true;
     }
     console.log(this.userName != undefined);
+  }
+
+  childMessageToParent(msg: string) {
+    this.childMessage = msg;
   }
 }
