@@ -1,11 +1,13 @@
-<!-- <main [style.backgroundColor]="isLoggedIn ? 'white' : 'lightblue'">
-  
-  <div class="form" *ngIf="!isLoggedIn">
+<main
+  [style.backgroundColor]="isLoggedIn ? 'white' : 'lightblue'"
+  *ngIf="!isLoggedIn"
+>
+  <div class="form">
     <h1>Login Form</h1>
     <p>
       UserName : <input placeholder="John" type="text" [(ngModel)]="userName" />
     </p>
-    
+
     <p>
       Profession :
       <input
@@ -42,9 +44,10 @@
     </p>
   </div>
 </main>
-<hr /> -->
 
-<!-- <app-header-component></app-header-component> 
+<app-header-component
+  *ngIf="isLoggedIn"
+  [isStudent]="stillStudent"
+></app-header-component>
 
-<hr />-->
-<app-posts-list></app-posts-list>
+<app-posts-list *ngIf="isLoggedIn" [user]="userName"></app-posts-list>

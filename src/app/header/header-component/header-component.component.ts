@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,8 @@ export class HeaderComponentComponent {
     'for',
     'switch',
   ];
+
+  @Input() isStudent: boolean = false;
 
   msg: string = '';
   topic: string = '';

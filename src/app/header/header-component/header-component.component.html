@@ -1,28 +1,30 @@
-<p>Created above small LoginForm using following topics:</p>
-<div class="horizontal">
-  <div class="vertical">
-    @for(topic of topics; track topic; let index=$index){
-    <p>
-      {{ index + 1 }}. {{ topic }}
-      <button (click)="delete(index)">delete</button>
-    </p>
-    } @empty {
-    <p style="color: red">Add Topics to Delete ;)</p>
-    }
-  </div>
-  <div class="vertical">
-    <div class="horizontal">
-      <input
-        type="text"
-        placeholder="Enter a topic to add"
-        [(ngModel)]="topic"
-      />
-      <button (click)="add()">Add</button>
-    </div>
-    <p>
-      @if(topic.length < 1 ){
-      <span [style.color]="isadded ? 'green' : 'red'">{{ msg }}</span>
+<main *ngIf="isStudent">
+  <p>Created above small LoginForm using following topics:</p>
+  <div class="horizontal">
+    <div class="vertical">
+      @for(topic of topics; track topic; let index=$index){
+      <p>
+        {{ index + 1 }}. {{ topic }}
+        <button (click)="delete(index)">delete</button>
+      </p>
+      } @empty {
+      <p style="color: red">Add Topics to Delete ;)</p>
       }
-    </p>
+    </div>
+    <div class="vertical">
+      <div class="horizontal">
+        <input
+          type="text"
+          placeholder="Enter a topic to add"
+          [(ngModel)]="topic"
+        />
+        <button (click)="add()">Add</button>
+      </div>
+      <p>
+        @if(topic.length < 1 ){
+        <span [style.color]="isadded ? 'green' : 'red'">{{ msg }}</span>
+        }
+      </p>
+    </div>
   </div>
-</div>
+</main>

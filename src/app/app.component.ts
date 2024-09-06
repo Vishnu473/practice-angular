@@ -8,11 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'CodeSandbox';
 
-  isLoggedIn: boolean = false;
-  userName: string = '';
+  isLoggedIn: boolean = true; //hard-coded for further navigation
+  userName: string = 'Vishnu Kishore'; //hard-coded for further navigation in websitet
+  stillStudent: boolean = false; //hard-coded for further navigation to header-component
+
   profession: string = '';
   password: string = '';
-
   message: string = '';
 
   Login(): void {
@@ -30,6 +31,9 @@ export class AppComponent {
       this.isLoggedIn = false;
       this.userName = this.password = this.profession = '';
       this.message = 'Both UserName and Password are required. Retry.';
+    }
+    if (this.profession.trim().toLowerCase() == 'student') {
+      this.stillStudent = true;
     }
     console.log(this.userName != undefined);
   }
