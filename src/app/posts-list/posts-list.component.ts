@@ -1,5 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Post } from '../services/post-service.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -10,4 +11,6 @@ import { Component, Input } from '@angular/core';
 })
 export class PostsListComponent {
   @Input() user: string = '';
+
+  @Input() postLists: Post[] = [];
 }

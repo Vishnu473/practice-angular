@@ -50,4 +50,8 @@
   [isStudent]="stillStudent"
 ></app-header-component>
 
-<app-posts-list *ngIf="isLoggedIn" [user]="userName"></app-posts-list>
+<app-posts-list
+  *ngIf="isLoggedIn"
+  [user]="userName"
+  [postLists]="currentpostList"
+></app-posts-list>

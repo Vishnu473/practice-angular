@@ -1,1 +1,17 @@
+<!-- Parent to child - Data Flow using @Input -->
 <p [ngClass]="{ greet: user }">Welcome {{ user }}!</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Author</th>
+  </tr>
+  @for(post of postLists; track post){
+  <tr>
+    <td>{{ post.title }}</td>
+    <td>{{ post.content }}</td>
+    <td>{{ post.author }}</td>
+  </tr>
+  }
+</table>
