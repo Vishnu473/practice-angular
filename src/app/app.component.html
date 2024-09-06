@@ -1,0 +1,48 @@
+<main [style.backgroundColor]="isLoggedIn ? 'white' : 'lightblue'">
+  <!-- using normal Value attribute -->
+  <!-- <input type="text" [value]="userName" /><br /> -->
+  <div class="form" *ngIf="!isLoggedIn">
+    <h1>Login Form</h1>
+    <p>
+      UserName : <input placeholder="John" type="text" [(ngModel)]="userName" />
+    </p>
+    <!-- using ngModel -->
+    <p>
+      Profession :
+      <input
+        placeholder="Software Engineer"
+        [(ngModel)]="profession"
+        type="text"
+      />
+    </p>
+
+    <p>
+      Password :
+      <input placeholder="9J@0B$74v" [(ngModel)]="password" type="password" />
+    </p>
+    <br />
+    <button (click)="Login()">Login</button>
+    <br /><br />
+  </div>
+
+  <p
+    [ngClass]="{ 'success-text': isLoggedIn, 'error-text': !isLoggedIn }"
+    *ngIf="userName.length < 2 || password.length < 2"
+  >
+    {{ message }}
+  </p>
+  <div *ngIf="isLoggedIn" [style.color]="'isLoggedIn' ? 'green' : 'black'">
+    <p *ngIf="isLoggedIn">Practicing Angular using {{ title }}</p>
+    <p>Details Entered :</p>
+    <p>UserName : {{ userName }}</p>
+    <p *ngIf="profession.length > 0">Profession : {{ profession }}</p>
+    <p>Password : {{ password }}</p>
+
+    <p [ngClass]="{ 'success-text': isLoggedIn, 'error-text': !isLoggedIn }">
+      {{ message }}
+    </p>
+  </div>
+</main>
+<hr />
+
+<app-header-component></app-header-component>

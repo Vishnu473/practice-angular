@@ -1,0 +1,6 @@
+<p>Created above small LoginForm using following topics:</p>
+@for(topic of topics; track topic; let index=$index){
+<p>
+  {{ index + 1 }}. {{ topic }} <button (click)="delete(index)">delete</button>
+</p>
+}

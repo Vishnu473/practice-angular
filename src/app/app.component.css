@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.error-text {
+  color: red;
+}
+.success-text {
+  color: green;
+}
+input,
+button {
+  width: 250px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid blue;
+  color: blue;
+  border-radius: 5px;
+  outline: none;
+  padding: 0px 5px;
+  font-size: 16px;
+}
+div .form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  background-color: blue;
+  border: 1px solid Blue;
+  color: white;
+}
+p {
+  padding: 0px 10px 5px 10px;
+}
