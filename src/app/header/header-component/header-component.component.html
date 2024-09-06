@@ -6,6 +6,8 @@
       {{ index + 1 }}. {{ topic }}
       <button (click)="delete(index)">delete</button>
     </p>
+    } @empty {
+    <p style="color: red">Add Topics to Delete ;)</p>
     }
   </div>
   <div class="vertical">
@@ -17,6 +19,10 @@
       />
       <button (click)="add()">Add</button>
     </div>
-    <p *ngIf="topic.length < 1">{{ msg }}</p>
+    <p>
+      @if(topic.length < 1 ){
+      <span [style.color]="isadded ? 'green' : 'red'">{{ msg }}</span>
+      }
+    </p>
   </div>
 </div>

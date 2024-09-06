@@ -14,7 +14,6 @@ export class HeaderComponentComponent {
     'If else',
     'Data Binding',
     'Class Binding',
-    'Class Binding',
     'Style Binding',
     'for',
     'switch',
@@ -22,8 +21,16 @@ export class HeaderComponentComponent {
 
   msg: string = '';
   topic: string = '';
+  isadded: boolean = true;
+
   delete(index: number): void {
+    console.log(this.topics.at(index));
+    this.msg = this.topics.at(index) + ' is deleted.';
     this.topics.splice(index, 1);
+    this.isadded = false;
+    console.log(
+      this.topic.length < 1 || (this.topics.length == 0 && !this.isadded)
+    );
   }
 
   add() {
@@ -33,12 +40,17 @@ export class HeaderComponentComponent {
       this.topic.trim() == ''
     ) {
       this.msg = 'Enter a valid topic to add';
+      this.isadded = false;
     } else {
       if (this.topics.indexOf(this.topic) != -1) {
         this.msg = 'Topic is already present. add new topic';
+        this.topic = '';
+        this.isadded = false;
       } else {
         this.topics.push(this.topic.trim());
-        this.msg = 'Topic added';
+        this.msg = 'Topic ' + this.topic + ' added';
+        this.isadded = true;
+        this.topic = '';
       }
     }
   }
