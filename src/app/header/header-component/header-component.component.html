@@ -1,6 +1,22 @@
 <p>Created above small LoginForm using following topics:</p>
-@for(topic of topics; track topic; let index=$index){
-<p>
-  {{ index + 1 }}. {{ topic }} <button (click)="delete(index)">delete</button>
-</p>
-}
+<div class="horizontal">
+  <div class="vertical">
+    @for(topic of topics; track topic; let index=$index){
+    <p>
+      {{ index + 1 }}. {{ topic }}
+      <button (click)="delete(index)">delete</button>
+    </p>
+    }
+  </div>
+  <div class="vertical">
+    <div class="horizontal">
+      <input
+        type="text"
+        placeholder="Enter a topic to add"
+        [(ngModel)]="topic"
+      />
+      <button (click)="add()">Add</button>
+    </div>
+    <p *ngIf="topic.length < 1">{{ msg }}</p>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+button {
+  width: fit-content;
+}
+.horizontal {
+  display: flex;
+  padding: 20px;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+}

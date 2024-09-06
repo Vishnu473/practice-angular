@@ -3,3 +3,9 @@ body {
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
+input,
+button {
+  max-width: 250px;
+  height: 30px;
+}
