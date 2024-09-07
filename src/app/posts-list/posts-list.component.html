@@ -1,5 +1,5 @@
 <!-- Parent to child - Data Flow using @Input -->
-<p [ngClass]="{ greet: user }">Welcome {{ user }}!</p>
+<!-- <p [ngClass]="{ greet: user }">Welcome {{ user }}!</p> -->
 
 <table [ngClass]="{ padding: user }">
   <tr [ngStyle]="{ 'background-color': 'black', color: 'white' }">
@@ -16,4 +16,6 @@
   }
 </table>
 
-<button (click)="sendMessage()">Send User Message to Parent</button>
+<!-- <button (click)="sendMessage()">Send User Message to Parent</button> -->
+
+<ng-content></ng-content>
