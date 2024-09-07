@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Post } from './services/post-service.service';
+import { PostsListComponent } from './posts-list/posts-list.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'CodeSandbox';
 
   isLoggedIn: boolean = true; //hard-coded for further navigation
@@ -18,8 +19,12 @@ export class AppComponent {
   message: string = '';
   childMessage: string = '';
   currentpostList: Post[] = [];
+  @ViewChild(PostsListComponent) secretMessage: any;
+  secretMsgToParent: string = '';
 
   constructor() {
+    //console.log(this.secretMessage);
+
     this.currentpostList = [
       {
         id: 1,
@@ -56,6 +61,9 @@ export class AppComponent {
     ];
   }
 
+  ngAfterViewInit(): void {
+    this.secretMsgToParent = this.secretMessage.secretMessage;
+  }
   Login(): void {
     if (
       this.userName != null &&

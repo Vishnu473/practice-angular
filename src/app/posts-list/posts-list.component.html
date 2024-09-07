@@ -1,14 +1,14 @@
 <!-- Parent to child - Data Flow using @Input -->
 <p [ngClass]="{ greet: user }">Welcome {{ user }}!</p>
 
-<table>
-  <tr>
+<table [ngClass]="{ padding: user }">
+  <tr [ngStyle]="{ 'background-color': 'black', color: 'white' }">
     <th>Title</th>
     <th>Content</th>
     <th>Author</th>
   </tr>
-  @for(post of postLists; track post){
-  <tr>
+  @for(post of postLists; track post; let odd = $odd;){
+  <tr [ngClass]="odd ? 'oddRow' : 'evenRow'">
     <td>{{ post.title }}</td>
     <td>{{ post.content }}</td>
     <td>{{ post.author }}</td>

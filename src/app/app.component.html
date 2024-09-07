@@ -44,14 +44,20 @@
     </p>
   </div>
 </main>
-<h3>Message sent by Child is :</h3>
+<h3>
+  Click on Button to see Message sent by Child using EventEmitter and Output is
+  :
+</h3>
 <p>{{ childMessage }}</p>
-
+<hr />
+<h3>Message sent by Child using ViewChild is :</h3>
+<p>{{ secretMsgToParent }}</p>
+<hr />
 <app-header-component
   *ngIf="isLoggedIn"
   [isStudent]="stillStudent"
 ></app-header-component>
-
+<hr />
 <app-posts-list
   *ngIf="isLoggedIn"
   [user]="userName"
