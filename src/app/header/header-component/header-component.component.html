@@ -28,4 +28,12 @@
     </div>
   </div>
 </main>
-<ng-content></ng-content>
+<header>
+  <ng-content select="[header]"></ng-content>
+</header>
+<body>
+  <ng-content select="[body]"></ng-content>
+</body>
+<footer>
+  <ng-content select="[footer]"></ng-content>
+</footer>
