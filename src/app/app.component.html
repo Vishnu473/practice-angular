@@ -60,16 +60,18 @@
 </app-header-component>
 
 <hr /> -->
-<app-posts-list
+<!-- <app-posts-list
   *ngIf="isLoggedIn"
   [user]="userName"
   [postLists]="currentpostList"
   (UserMessage)="childMessageToParent($event)"
 >
-  <!-- <h1 header>From App to PostList Component</h1>
+  <h1 header>From App to PostList Component</h1>
   <p body>Post 1</p>
-  <p footer>Post Description 1</p> -->
+  <p footer>Post Description 1</p>
 </app-posts-list>
 <p>Load and Destroy component using ViewComponentRef</p>
 <button (click)="loadComponent()">Create Component</button>
-<button (click)="removeComponent()">Remove Component</button>
+<button (click)="removeComponent()">Remove Component</button> -->
+
+<app-profile [pUserName]="userName"></app-profile>

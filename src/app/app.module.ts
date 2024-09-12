@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponentComponent } from './header/header-component/header-component.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { PostsListComponent } from './posts-list/posts-list.component';
     FormsModule,
     HeaderComponentComponent,
     PostsListComponent,
+    ProfileComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
