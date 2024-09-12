@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { Post } from './services/post-service.service';
 import { PostsListComponent } from './posts-list/posts-list.component';
 
@@ -22,9 +27,14 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(PostsListComponent) secretMessage: any;
   secretMsgToParent: string = '';
 
-  constructor() {
-    //console.log(this.secretMessage);
+  loadComponent() {
+    this.viewContainer.createComponent(PostsListComponent);
+  }
 
+  removeComponent() {
+    this.viewContainer.remove();
+  }
+  constructor(private viewContainer: ViewContainerRef) {
     this.currentpostList = [
       {
         id: 1,

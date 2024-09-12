@@ -53,20 +53,23 @@
 <h3>Message sent by Child using ViewChild is :</h3>
 <p>{{ secretMsgToParent }}</p>
 <hr /> -->
-<app-header-component *ngIf="isLoggedIn" [isStudent]="stillStudent">
+<!-- <app-header-component *ngIf="isLoggedIn" [isStudent]="stillStudent">
   <h1 header>From App to Header Component</h1>
   <p body>Topic 1</p>
   <p footer>Topic Description 1</p>
 </app-header-component>
 
-<hr />
+<hr /> -->
 <app-posts-list
   *ngIf="isLoggedIn"
   [user]="userName"
   [postLists]="currentpostList"
   (UserMessage)="childMessageToParent($event)"
 >
-  <h1 header>From App to PostList Component</h1>
+  <!-- <h1 header>From App to PostList Component</h1>
   <p body>Post 1</p>
-  <p footer>Post Description 1</p>
+  <p footer>Post Description 1</p> -->
 </app-posts-list>
+<p>Load and Destroy component using ViewComponentRef</p>
+<button (click)="loadComponent()">Create Component</button>
+<button (click)="removeComponent()">Remove Component</button>

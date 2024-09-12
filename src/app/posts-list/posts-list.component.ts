@@ -1,5 +1,12 @@
 import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewContainerRef,
+  AfterViewInit,
+} from '@angular/core';
 import { Post } from '../services/post-service.service';
 
 @Component({
@@ -9,7 +16,7 @@ import { Post } from '../services/post-service.service';
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css',
 })
-export class PostsListComponent {
+export class PostsListComponent implements AfterViewInit {
   @Input() user: string = '';
   @Input() postLists: Post[] = [];
   @Output() UserMessage = new EventEmitter();
@@ -19,5 +26,9 @@ export class PostsListComponent {
 
   sendMessage(): void {
     this.UserMessage.emit(this.currentMessage);
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.postLists);
   }
 }
