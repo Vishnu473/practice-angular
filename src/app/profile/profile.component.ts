@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +7,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent implements OnChanges, OnInit {
+export class ProfileComponent implements OnChanges, OnInit, DoCheck {
   @Input() pUserName: string = '';
 
   constructor() {
@@ -23,6 +23,12 @@ export class ProfileComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges() {
-    console.log('Some Change was detected');
+    console.log('Some Change was detected related to Input Property');
+  }
+
+  ngDoCheck() {
+    console.log(
+      'This was trigerred everytime the change detection runs related to Input Property as well. It calls for the first time when the component is loaded also.'
+    );
   }
 }

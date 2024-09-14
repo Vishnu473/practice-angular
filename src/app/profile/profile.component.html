@@ -1,3 +1,27 @@
 <p>profile works!</p>
 
 <p>UserName : {{ pUserName }}</p>
+<br />
+<p>Constructor:</p>
+<p>
+  This is called when component is created. Keep it simple. Don't access DOM.
+</p>
+<br />
+<p>ngOnInit:</p>
+<p>
+  This is called only once after component is Initiated in the entire component
+  LifeCycle. Used for API calls.
+</p>
+<br />
+<p>ngOnChanges:</p>
+<p>Some Change was detected related to Input Property.</p>
+<br />
+<p>ngDoCheck:</p>
+<p>
+  This was trigerred everytime the change detection runs related to Input
+  Property as well. It calls for the first time when the component is loaded
+  also. It catches the detections that ngOnchanges doesn't catch. Use it for
+  custom change detection. Helpful in detecting the changes in the complex
+  objects.
+</p>
+<h5>Remember to Use it with caution!!</h5>

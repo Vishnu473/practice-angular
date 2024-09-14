@@ -1,0 +1,125 @@
+<p>Let's work on Pipes Today :)</p>
+<!-- Case Pipes -->
+<br />
+<h3>Case Pipes - Lower, Upper, Title</h3>
+<br />
+<p>{{ user + user1 }} - Without pipe</p>
+<p>{{ user | uppercase }} - Upper</p>
+<p>{{ user1 | lowercase }} - Lower</p>
+<p>{{ user | uppercase | titlecase }} - Title</p>
+<br />
+<hr />
+<br />
+<!-- Number Pipes -->
+<h3>Number Pipes - Decimal, Percent</h3>
+<br />
+<p>{{ number1 + number2 }} - Add both numbers Without pipe</p>
+<p>{{ number1 | number }}</p>
+<p>{{ number2 | number }}</p>
+<p>{{ attendancePercent }} - without pipe</p>
+<p>{{ attendancePercent | percent }}</p>
+<br />
+<hr />
+<br />
+<h3>Currency Pipes - Dollar,Rupee, Pound</h3>
+<br />
+<p>{{ cost }} - Without pipe</p>
+<p>{{ cost | currency }} - Dollar(Default)</p>
+<p>{{ cost | currency : "INR" }} - Rupees</p>
+<p>{{ cost | currency : "GBP" }} - Pounds</p>
+<p>{{ cost | currency : "EUR" }} - European Pound</p>
+<br />
+<hr />
+<br />
+<h3>Date, Time Pipes</h3>
+<br />
+<p>{{ birthday }} - Without any Pipe</p>
+<p>{{ birthday | date }} - Date(Default)</p>
+<p>{{ birthday | date : "short" }} - short</p>
+<p>{{ birthday | date : "medium" }} - medium</p>
+<p>{{ birthday | date : "long" }} - long</p>
+<p>{{ birthday | date : "full" }} - full</p>
+<p>{{ birthday | date : "longDate" }} - longDate</p>
+<p>{{ birthday | date : "shortDate" }} - shortDate</p>
+<p>{{ birthday | date : "fullDate" }} - fullDate</p>
+<p>{{ birthday | date : "mediumDate" }} - mediumDate same as longDate</p>
+<p>{{ birthday | date : "shortTime" }} -shortTime</p>
+<p>{{ birthday | date : "longTime" }} - longTime</p>
+<p>{{ birthday | date : "mediumTime" }} - mediumTime</p>
+<p>{{ birthday | date : "fullTime" }} - fullTime</p>
+<p>{{ birthday | date : "dd-MM- yyyy" }} = dd-MM- yyyy</p>
+<p>{{ birthday | date : "MMM dd, yyy" }} = MMM - dd - yyy</p>
+<p>{{ birthday | date : "hh:mm:ss" }} = hh:mm:ss</p>
+<p>
+  {{ birthday | date : "MMM dd, yyy 'at' hh:mm:ss 'on' EEEE" }} - MMM dd, yyy
+  'at' hh:mm:ss 'on' EEEE
+</p>
+<p>
+  {{ birthday | date : "MMM dd, yyy 'at' hh zzzz" }} - "MMM dd, yyy 'at' hh
+  zzzz"
+</p>
+<p>
+  {{ birthday | date : "MMM dd, yyy 'at' HH zzzz" }} - "MMM dd, yyy 'at' HH
+  zzzz"
+</p>
+<br />
+<hr />
+<br />
+<h3>Json Pipe</h3>
+<br />
+<p>{{ obj }} - without Pipe ;(</p>
+<p>{{ obj | json }}</p>
+<br />
+<hr />
+<br />
+<h3>Slice Pipe</h3>
+<br />
+<p>{{ user + " " + user1 }} - without Pipe</p>
+<p>
+  {{ user + user1 | slice : 4 }} -(4) slice takes two parameters in which the
+  second parameter is optional.
+</p>
+<p>{{ user + " " + user1 | slice : 0 : 10 }} - startIndex:0 , lastIndex:10</p>
+<br />
+<hr />
+<br />
+<h3>Chaining Pipes</h3>
+<br />
+<p>
+  Chaining of Pipes is nothing but adding more than one pipe and transforming
+  the data as desired. Here the output data from one pipe is given as input to
+  the next Pipe. But be cautious as chaining the pipes to complex data might be
+  making the performance slow.
+</p>
+<br />
+<p>{{ user + user1 | slice : 0 : 13 }} - slicing from start to 13</p>
+<p>
+  {{ user + user1 | slice : 0 : 13 | slice : 4 : 10 }} - slicing from start to
+  13 and then from 4 to 10
+</p>
+<p>
+  {{ user + user1 | slice : 0 : 13 | slice : 4 : 10 | uppercase }} - slicing
+  till 13 and then slicing from 4 to 10 and then to upperCase
+</p>
+<br />
+<hr />
+<br />
+<h3>Custom Pipes</h3>
+<br />
+<p>
+  You can define a custom pipe by implementing a TypeScript class with the
+  &#64;Pipe decorator. A pipe must have two things: A name, specified in the
+  pipe decorator A method named transform that performs the value
+  transformation. The TypeScript class should additionally implement the
+  PipeTransform interface to ensure that it satisfies the type signature for a
+  pipe. Here is an example of a custom pipe that transforms strings to kebab
+  case:
+</p>
+<br />
+<p>Check for CustomPipe class - KebabPipePipe</p>
+<p>
+  {{
+    user + " " + user1 + " is a Software Employee working in HCLTech Company."
+      | kebabPipe
+  }}
+</p>
