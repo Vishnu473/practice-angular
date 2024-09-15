@@ -7,6 +7,7 @@ import { HeaderComponentComponent } from './header/header-component/header-compo
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { UserDataComponent } from './user-data/user-data.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { PipesComponent } from './pipes/pipes.component';
     PostsListComponent,
     ProfileComponent,
     PipesComponent,
+    UserDataComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

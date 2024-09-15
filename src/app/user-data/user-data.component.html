@@ -1,0 +1,19 @@
+<h1>Displaying UserData using Services, Interfaces, Dependency Injection.</h1>
+<br />
+<ul>
+  @for (data of userDataList; track data) {
+  <div>
+    <h3>{{ data.userName }}</h3>
+    <p>Education : {{ data.education }}</p>
+    <p>Skills :</p>
+    <ol>
+      @for (skill of data.skills; track skill) {
+      <li>{{ skill.name }} - {{ skill.proficiency / 100 | percent }}</li>
+      }
+    </ol>
+  </div>
+  <br />
+  <hr />
+  }
+</ul>
+<button (click)="addUser()">Add UserData</button>
