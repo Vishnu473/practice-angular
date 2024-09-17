@@ -1,156 +1,204 @@
-<section class="container">
-  <h3>Registration Form</h3>
+<main>
+  @if(!user){
 
-  <form class="form" (ngSubmit)="onFormSubmitted()" #registrationform="ngForm">
-    <div class="column">
-      <div class="input-box">
-        <input
-          type="text"
-          placeholder="First Name"
-          name="firstname"
-          ngModel
-          required
-          #fname="ngModel"
-        />
-        @if(fname.invalid && fname.touched){
-        <small>*First Name is required.</small>
-        }
+  <section class="container">
+    <h3>Registration Form</h3>
+
+    <form
+      class="form"
+      (ngSubmit)="onFormSubmitted()"
+      #registrationform="ngForm"
+      autocomplete="off"
+    >
+      <div class="column">
+        <div class="input-box">
+          <input
+            type="text"
+            placeholder="First Name"
+            name="firstname"
+            ngModel
+            required
+            #fname="ngModel"
+          />
+          @if(fname.invalid && fname.touched){
+          <small>*First Name is required.</small>
+          }
+        </div>
+
+        <div class="input-box">
+          <input
+            type="text"
+            placeholder="Last Name"
+            name="lastname"
+            ngModel
+            required
+            #lname="ngModel"
+          />
+          @if(lname.invalid && lname.touched){
+          <small>*Last Name is required.</small>
+          }
+        </div>
       </div>
 
       <div class="input-box">
         <input
           type="text"
-          placeholder="Last Name"
-          name="lastname"
+          placeholder="Email"
+          name="email"
           ngModel
+          pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
           required
-          #lname="ngModel"
+          #email="ngModel"
         />
-        @if(lname.invalid && lname.touched){
-        <small>*Last Name is required.</small>
+        @if(email.invalid && email.touched){
+        <small>*Email is required.</small>
         }
       </div>
-    </div>
 
+      <div class="column">
+        <div class="input-box">
+          <input
+            type="number"
+            placeholder="Phone Number"
+            name="phone"
+            ngModel
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="date"
+            placeholder="Date of Birth"
+            name="dob"
+            ngModel
+            required
+            #tempdob="ngModel"
+          />
+          @if((fname.valid && lname.valid) && tempdob.invalid){
+          <small>*Date is required.</small>
+          }
+        </div>
+      </div>
+      <div class="input-box">
+        @if(fname.valid && lname.valid && tempdob.valid){
+        <input
+          type="text"
+          placeholder="username"
+          name="username"
+          ngModel
+          required
+        />
+        }
+      </div>
+      <div
+        class="input-box address"
+        ngModelGroup="address"
+        #addr="ngModelGroup"
+      >
+        <p>Address</p>
+        <div class="column">
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Plot/Residence name"
+              name="plot"
+              ngModel
+              required
+              #str1="ngModel"
+            />
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Landmark/ StreetName"
+              name="street"
+              ngModel
+              required
+              #str2="ngModel"
+            />
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <div class="select-box">
+              <select name="country" ngModel>
+                <option hidden>Country</option>
+                <option>America</option>
+                <option>Japan</option>
+                <option>India</option>
+                <option>Nepal</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="City"
+              name="city"
+              ngModel
+              required
+            />
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <input
+              type="text"
+              placeholder="Region (optional)"
+              name="region"
+              ngModel
+            />
+          </div>
+          <div class="input-box">
+            <input
+              type="number"
+              placeholder="Postal code (optional)"
+              name="postal"
+              ngModel
+            />
+          </div>
+        </div>
+        @if(addr.invalid && addr.touched){
+        <small
+          >*some of the address fields doesn't contain a valid value.</small
+        >
+        }
+      </div>
+
+      <div class="btns">
+        <button
+          class="btn-gen-username"
+          type="button"
+          (click)="generateUserName()"
+          [disabled]="fname.invalid || lname.invalid || tempdob.invalid"
+        >
+          Create a Username
+        </button>
+        <input
+          type="submit"
+          value="Submit"
+          class="submit-btn"
+          [disabled]="registrationform.invalid"
+        />
+      </div>
+    </form>
+  </section>
+  }
+  <Section>
+    @if(user){
+    <h3>Details Entered:</h3>
     <div class="input-box">
-      <input
-        type="text"
-        placeholder="Email"
-        name="email"
-        ngModel
-        required
-        #email="ngModel"
-      />
-      @if(email.invalid && email.touched){
-      <small>*Email is required.</small>
-      }
+      <p><b>Full Name: </b>{{ user.firstname }} {{ user.lastname }}</p>
+      <p><b>Email: </b>{{ user.email }}</p>
+      <p><b>Date Of Birth: </b>{{ user.dob }}</p>
+      <p><b>Phone: </b>{{ user.phone }}</p>
+      <p>
+        <b>Address: </b>{{ user.address.plot }}, {{ user.address.street }},
+        {{ user.address.city }}, {{ user.address.region }},
+        {{ user.address.country }},
+        {{ user.address.postal }}
+      </p>
     </div>
-
-    <div class="column">
-      <div class="input-box">
-        <input
-          type="number"
-          placeholder="Phone Number"
-          name="phone"
-          ngModel
-          required
-        />
-      </div>
-      <div class="input-box">
-        <input
-          type="date"
-          placeholder="Date of Birth"
-          name="dob"
-          ngModel
-          required
-          #tempdob="ngModel"
-        />
-        @if(tempdob.invalid && tempdob.touched){
-        <small>*Date is required.</small>
-        }
-      </div>
-    </div>
-
-    <div class="input-box">
-      <input
-        type="text"
-        placeholder="username"
-        name="username"
-        ngModel
-        required
-      />
-      <button class="btn-gen-username" type="button">Create a Username</button>
-    </div>
-
-    <div class="gender-box">
-      <h3>Gender</h3>
-      <div class="gender-option">
-        <div class="gender">
-          <input type="radio" id="check-male" name="gender" checked />
-          <label for="check-male">male</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-female" name="gender" />
-          <label for="check-female">Female</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-other" name="gender" />
-          <label for="check-other">prefer not to say</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="input-box address">
-      <h3>Address</h3>
-      <div class="column">
-        <input
-          type="text"
-          placeholder="Street address"
-          name="street1"
-          ngModel
-          required
-        />
-        <input
-          type="text"
-          placeholder="Street address line 2"
-          name="street2"
-          ngModel
-        />
-      </div>
-
-      <div class="column">
-        <div class="select-box">
-          <select name="country" name="firstname" ngModel>
-            <option hidden>Country</option>
-            <option>America</option>
-            <option>Japan</option>
-            <option>India</option>
-            <option>Nepal</option>
-          </select>
-        </div>
-        <input type="text" placeholder="City" name="city" ngModel required />
-      </div>
-      <div class="column">
-        <input
-          type="text"
-          placeholder="Region"
-          name="region"
-          ngModel
-          required
-        />
-        <input
-          type="number"
-          placeholder="Postal code"
-          name="firstname"
-          ngModel
-        />
-      </div>
-    </div>
-    <input
-      type="submit"
-      value="Submit"
-      class="submit-btn"
-      [disabled]="registrationform.invalid"
-    />
-  </form>
-</section>
+    }
+  </Section>
+</main>

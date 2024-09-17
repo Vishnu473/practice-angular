@@ -1,8 +1,14 @@
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  user-select: none;
+}
+main {
+  border: 2px solid purple;
+  background-color: rgb(251, 247, 251);
+  border-radius: 4px;
+  margin: 20px;
 }
 .container {
-  background-color: white;
   padding: 20px;
 }
 .form {
@@ -20,54 +26,81 @@ select {
 .column select {
   width: 190px;
   height: 30px;
+  color: purple;
 }
-.gender-options {
-  background-color: aquamarine;
+input:focus {
+  border: 1px solid purple;
 }
-.gender {
-  display: inline-block;
-  margin: 0;
-}
-h3 {
-  margin: 10px auto;
+h3,
+p {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  color: purple;
 }
 input,
 select,
 button {
+  font-weight: 500;
+  font-size: 14px;
   outline: none;
   padding: 3px 5px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #ccc;
+}
+input::placeholder {
+  color: #aaa;
 }
 .input-box {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 small {
   color: red;
   font-weight: 400;
 }
+.address small {
+  margin-left: 10px;
+}
 .select-box {
   display: block;
+  margin-right: 12px;
+}
+.btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 .btn-gen-username,
 .submit-btn {
-  margin: 5px 5px 5px 5px;
+  margin: 10px 5px;
+  font-size: 15px;
   width: 190px;
-  display: block;
+  height: 40px;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+  color: green;
 }
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 input[type="submit"],
 button {
-  background-color: rgb(255, 128, 0);
-  color: #eee;
-  border: none;
+  background-color: purple;
+  color: white;
+  border: 1px solid purple;
+  border-radius: 3px;
 }
 input[type="submit"]:disabled,
 button:disabled {
   background-color: #ccc;
   color: #eee;
+  border: 1px solid #efefef;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
