@@ -1,0 +1,12 @@
+<div class="main">
+  <div class="card">
+    <div class="counter">
+      <button class="btn" (click)="decrement()">-</button>
+      <span class="val">{{ count() }}</span>
+      <button class="btn" (click)="increment()">+</button>
+    </div>
+  </div>
+  @for (msg of messages(); track $index) {
+  <div class="card">{{ msg }}</div>
+  }
+</div>

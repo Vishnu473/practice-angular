@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import { FormComponent } from './form/form.component';
+import { SignalsComponent } from './signals/signals.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { FormComponent } from './form/form.component';
     PipesComponent,
     UserDataComponent,
     FormComponent,
+    SignalsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
